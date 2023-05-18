@@ -1,0 +1,479 @@
+[
+    {
+        "id": 1,
+        "name": "Vip east",
+        "seatPrice": 20,
+        "rows": [
+            {
+                "id": 1,
+                "name": "A",
+                "sectionId": 1,
+                "seats": [
+                    {
+                        "number": 1,
+                        "sectionId": 1,
+                        "sectionName": "VIP east",
+                        "rowId": 1,
+                        "rowName": "A",
+                        "status": "available"
+                    },
+                    {
+                        "number": 2,
+                        "sectionId": 1,
+                        "sectionName": "VIP east",
+                        "rowId": 1,
+                        "rowName": "A",
+                        "status": "available"
+                    },
+                    {
+                        "number": 3,
+                        "sectionId": 1,
+                        "sectionName": "VIP east",
+                        "rowId": 1,
+                        "rowName": "A",
+                        "status": "reserved"
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "name": "B",
+                "sectionId": 1,
+                "seats": [
+                    {
+                        "number": 1,
+                        "sectionId": 1,
+                        "sectionName": "VIP east",
+                        "rowId": 2,
+                        "rowName": "B",
+                        "status": "available"
+                    },
+                    {
+                        "number": 2,
+                        "sectionId": 1,
+                        "sectionName": "VIP east",
+                        "rowId": 2,
+                        "rowName": "B",
+                        "status": "available"
+                    },
+                    {
+                        "number": 3,
+                        "sectionId": 1,
+                        "sectionName": "VIP east",
+                        "rowId": 2,
+                        "rowName": "B",
+                        "status": "available"
+                    },
+                    {
+                        "number": 4,
+                        "sectionId": 1,
+                        "sectionName": "VIP east",
+                        "rowId": 2,
+                        "rowName": "B",
+                        "status": "available"
+                    }
+                ]
+            }
+        ]
+        
+    },
+    {
+        "id": 2,
+        "name": "Vip west",
+        "seatPrice": 20,
+        "rows": [
+            {
+                "id": 3,
+                "name": "A",
+                "sectionId": 2,
+                "seats": [
+                    {
+                        "number": 1,
+                        "sectionId": 2,
+                        "sectionName": "VIP east",
+                        "rowId": 3,
+                        "rowName": "A",
+                        "status": "available"
+                    },
+                    {
+                        "number": 2,
+                        "sectionId": 2,
+                        "sectionName": "VIP east",
+                        "rowId": 3,
+                        "rowName": "A",
+                        "status": "available"
+                    },
+                    {
+                        "number": 3,
+                        "sectionId": 2,
+                        "sectionName": "VIP east",
+                        "rowId": 3,
+                        "rowName": "A",
+                        "status": "available"
+                    }
+                ]
+            },
+            {
+                "id": 4,
+                "name": "B",
+                "sectionId": 2,
+                "seats": [
+                    {
+                        "number": 1,
+                        "sectionId": 2,
+                        "sectionName": "VIP east",
+                        "rowId": 4,
+                        "rowName": "B",
+                        "status": "available"
+                    },
+                    {
+                        "number": 2,
+                        "sectionId": 2,
+                        "sectionName": "VIP east",
+                        "rowId": 4,
+                        "rowName": "B",
+                        "status": "reserved"
+                    },
+                    {
+                        "number": 3,
+                        "sectionId": 2,
+                        "sectionName": "VIP east",
+                        "rowId": 4,
+                        "rowName": "B",
+                        "status": "available"
+                    },
+                    {
+                        "number": 4,
+                        "sectionId": 2,
+                        "sectionName": "VIP east",
+                        "rowId": 4,
+                        "rowName": "B",
+                        "status": "available"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Midel",
+        "seatPrice": 12,
+        "rows": [
+            {
+                "id": 5,
+                "name": "C",
+                "sectionId": 3,
+                "seats": [
+                    {
+                        "number": 1,
+                        "sectionId": 3,
+                        "sectionName": "Midel",
+                        "rowId": 5,
+                        "rowName": "C",
+                        "status": "available"
+                    },
+                    {
+                        "number": 2,
+                        "sectionId": 3,
+                        "sectionName": "Midel",
+                        "rowId": 5,
+                        "rowName": "C",
+                        "status": "reserved"
+                    },
+                    {
+                        "number": 3,
+                        "sectionId": 3,
+                        "sectionName": "Midel",
+                        "rowId": 5,
+                        "rowName": "C",
+                        "status": "available"
+                    },
+                    {
+                        "number": 4,
+                        "sectionId": 3,
+                        "sectionName": "Midel",
+                        "rowId": 5,
+                        "rowName": "C",
+                        "status": "available"
+                    },
+                    {
+                        "number": 5,
+                        "sectionId": 3,
+                        "sectionName": "Midel",
+                        "rowId": 5,
+                        "rowName": "C",
+                        "status": "available"
+                    },
+                    {
+                        "number": 6,
+                        "sectionId": 3,
+                        "sectionName": "Midel",
+                        "rowId": 5,
+                        "rowName": "C",
+                        "status": "available"
+                    },
+                    {
+                        "number": 7,
+                        "sectionId": 3,
+                        "sectionName": "Midel",
+                        "rowId": 5,
+                        "rowName": "C",
+                        "status": "available"
+                    },
+                    {
+                        "number": 8,
+                        "sectionId": 3,
+                        "sectionName": "Midel",
+                        "rowId": 5,
+                        "rowName": "C",
+                        "status": "available"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Last",
+        "seatPrice": 8,
+        "rows": [
+            {
+                "id": 6,
+                "name": "D",
+                "sectionId": 4,
+                "seats": [
+                    {
+                        "number": 1,
+                        "sectionId": 4,
+                        "sectionName": "Last",
+                        "rowId": 6,
+                        "rowName": "D",
+                        "status": "available"
+                    },
+                    {
+                        "number": 2,
+                        "sectionId": 4,
+                        "sectionName": "Last",
+                        "rowId": 6,
+                        "rowName": "D",
+                        "status": "available"
+                    },
+                    {
+                        "number": 3,
+                        "sectionId": 4,
+                        "sectionName": "Last",
+                        "rowId": 6,
+                        "rowName": "D",
+                        "status": "available"
+                    },
+                    {
+                        "number": 4,
+                        "sectionId": 4,
+                        "sectionName": "Last",
+                        "rowId": 6,
+                        "rowName": "D",
+                        "status": "available"
+                    },
+                    {
+                        "number": 5,
+                        "sectionId": 4,
+                        "sectionName": "Last",
+                        "rowId": 6,
+                        "rowName": "D",
+                        "status": "reserved"
+                    },
+                    {
+                        "number": 6,
+                        "sectionId": 4,
+                        "sectionName": "Last",
+                        "rowId": 6,
+                        "rowName": "D",
+                        "status": "available"
+                    },
+                    {
+                        "number": 7,
+                        "sectionId": 4,
+                        "sectionName": "Last",
+                        "rowId": 6,
+                        "rowName": "D",
+                        "status": "available"
+                    },
+                    {
+                        "number": 8,
+                        "sectionId": 4,
+                        "sectionName": "Last",
+                        "rowId": 6,
+                        "rowName": "D",
+                        "status": "available"
+                    },
+                    {
+                        "number": 9,
+                        "sectionId": 4,
+                        "sectionName": "Last",
+                        "rowId": 6,
+                        "rowName": "D",
+                        "status": "available"
+                    }
+                ]
+            },
+            {
+                "id": 7,
+                "name": "E",
+                "sectionId": 4,
+                "seats": [
+                    {
+                        "number": 1,
+                        "sectionId": 4,
+                        "sectionName": "Last",
+                        "rowId": 7,
+                        "rowName": "E",
+                        "status": "available"
+                    },
+                    {
+                        "number": 2,
+                        "sectionId": 4,
+                        "sectionName": "Last",
+                        "rowId": 7,
+                        "rowName": "E",
+                        "status": "available"
+                    },
+                    {
+                        "number": 3,
+                        "sectionId": 4,
+                        "sectionName": "Last",
+                        "rowId": 7,
+                        "rowName": "E",
+                        "status": "available"
+                    },
+                    {
+                        "number": 4,
+                        "sectionId": 4,
+                        "sectionName": "Last",
+                        "rowId": 7,
+                        "rowName": "E",
+                        "status": "available"
+                    },
+                    {
+                        "number": 5,
+                        "sectionId": 4,
+                        "sectionName": "Last",
+                        "rowId": 7,
+                        "rowName": "E",
+                        "status": "available"
+                    },
+                    {
+                        "number": 6,
+                        "sectionId": 4,
+                        "sectionName": "Last",
+                        "rowId": 7,
+                        "rowName": "E",
+                        "status": "available"
+                    },
+                    {
+                        "number": 7,
+                        "sectionId": 4,
+                        "sectionName": "Last",
+                        "rowId": 7,
+                        "rowName": "E",
+                        "status": "available"
+                    },
+                    {
+                        "number": 8,
+                        "sectionId": 4,
+                        "sectionName": "Last",
+                        "rowId": 7,
+                        "rowName": "E",
+                        "status": "available"
+                    },
+                    {
+                        "number": 9,
+                        "sectionId": 4,
+                        "sectionName": "Last",
+                        "rowId": 7,
+                        "rowName": "E",
+                        "status": "reserved"
+                    }
+                ]
+            },
+            {
+                "id": 8,
+                "name": "F",
+                "sectionId": 4,
+                "seats": [
+                    {
+                        "number": 1,
+                        "sectionId": 4,
+                        "sectionName": "Last",
+                        "rowId": 8,
+                        "rowName": "F",
+                        "status": "available"
+                    },
+                    {
+                        "number": 2,
+                        "sectionId": 4,
+                        "sectionName": "Last",
+                        "rowId": 8,
+                        "rowName": "F",
+                        "status": "available"
+                    },
+                    {
+                        "number": 3,
+                        "sectionId": 4,
+                        "sectionName": "Last",
+                        "rowId": 8,
+                        "rowName": "F",
+                        "status": "available"
+                    },
+                    {
+                        "number": 4,
+                        "sectionId": 4,
+                        "sectionName": "Last",
+                        "rowId": 8,
+                        "rowName": "F",
+                        "status": "available"
+                    },
+                    {
+                        "number": 5,
+                        "sectionId": 4,
+                        "sectionName": "Last",
+                        "rowId": 8,
+                        "rowName": "F",
+                        "status": "reserved"
+                    },
+                    {
+                        "number": 6,
+                        "sectionId": 4,
+                        "sectionName": "Last",
+                        "rowId": 8,
+                        "rowName": "F",
+                        "status": "available"
+                    },
+                    {
+                        "number": 7,
+                        "sectionId": 4,
+                        "sectionName": "Last",
+                        "rowId": 8,
+                        "rowName": "F",
+                        "status": "available"
+                    },
+                    {
+                        "number": 8,
+                        "sectionId": 4,
+                        "sectionName": "Last",
+                        "rowId": 8,
+                        "rowName": "F",
+                        "status": "available"
+                    },
+                    {
+                        "number": 9,
+                        "sectionId": 4,
+                        "sectionName": "Last",
+                        "rowId": 8,
+                        "rowName": "F",
+                        "status": "available"
+                    }
+                ]
+            }
+        ]
+    }
+]

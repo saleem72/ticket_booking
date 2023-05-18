@@ -1,0 +1,123 @@
+[
+    {
+        "id": 1,
+        "movie": {
+            "id": 453395,
+            "title": "Doctor Strange",
+            "subtitle": "in the Multiverse of Madness",
+            "overview": "Doctor Strange, with the help of mystical allies both old and new, traverses the mind-bending and dangerous alternate realities of the Multiverse to confront a mysterious new adversary.",
+            "releaseDate": "2022-05-04",
+            "posterPathHighResURLString": "https://image.tmdb.org/t/p/w500/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg",
+            "posterPathLowResURLString": "https://image.tmdb.org/t/p/w200/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg",
+            "popularity": 3348.339,
+            "voteAverage": 7.4,
+            "voteCount": 2140,
+            "backdropPath": "https://image.tmdb.org/t/p/w500/gUNRlH66yNDH3NQblYMIwgZXJ2u.jpg"
+        },
+        "selectedDate": "2022-05-04",
+        "selectedTime": {
+            "id": 1,
+            "hour": 16,
+            "minutes": 0
+        },
+        "selectedSeats": [
+            {
+                "number": 1,
+                "sectionId": 1,
+                "sectionName": "VIP",
+                "rowId": 1,
+                "rowName": "A",
+                "status": "available"
+            },
+            {
+                "number": 2,
+                "sectionId": 1,
+                "sectionName": "VIP",
+                "rowId": 1,
+                "rowName": "A",
+                "status": "available"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "movie": {
+            "id": 526896,
+            "title": "Morbius",
+            "subtitle": "",
+            "overview": "Dangerously ill with a rare blood disorder, and determined to save others suffering his same fate, Dr. Michael Morbius attempts a desperate gamble. What at first appears to be a radical success soon reveals itself to be a remedy potentially worse than the disease.",
+            "releaseDate": "2022-03-30",
+            "posterPathHighResURLString": "https://image.tmdb.org/t/p/w500/6JjfSchsU6daXk2AKX8EEBjO3Fm.jpg",
+            "posterPathLowResURLString": "https://image.tmdb.org/t/p/w200/6JjfSchsU6daXk2AKX8EEBjO3Fm.jpg",
+            "popularity": 5841.085,
+            "voteAverage": 6.4,
+            "voteCount": 1458,
+            "backdropPath": "https://image.tmdb.org/t/p/w500/gG9fTyDL03fiKnOpf2tr01sncnt.jpg"
+        },
+        "selectedDate": "2022-05-04",
+        "selectedTime": {
+            "id": 2,
+            "hour": 18,
+            "minutes": 0
+        },
+        "selectedSeats": [
+            {
+                "number": 1,
+                "sectionId": 1,
+                "sectionName": "VIP",
+                "rowId": 1,
+                "rowName": "A",
+                "status": "available"
+            },
+            {
+                "number": 2,
+                "sectionId": 1,
+                "sectionName": "VIP",
+                "rowId": 1,
+                "rowName": "A",
+                "status": "available"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "movie": {
+            "id": 338953,
+            "title": "Fantastic Beasts",
+            "subtitle": "The Secrets of Dumbledore",
+            "overview": "Professor Albus Dumbledore knows the powerful, dark wizard Gellert Grindelwald is moving to seize control of the wizarding world. Unable to stop him alone, he entrusts magizoologist Newt Scamander to lead an intrepid team of wizards and witches. They soon encounter an array of old and new beasts as they clash with Grindelwald's growing legion of followers.",
+            "releaseDate": "2022-04-06",
+            "posterPathHighResURLString": "https://image.tmdb.org/t/p/w500/jrgifaYeUtTnaH7NF5Drkgjg2MB.jpg",
+            "posterPathLowResURLString": "https://image.tmdb.org/t/p/w200/jrgifaYeUtTnaH7NF5Drkgjg2MB.jpg",
+            "popularity": 9941.754,
+            "voteAverage": 6.8,
+            "voteCount": 1497,
+            "backdropPath": "https://image.tmdb.org/t/p/w500/7ucaMpXAmlIM24qZZ8uI9hCY0hm.jpg"
+        },
+        "selectedDate": "2022-05-04",
+        "selectedTime": {
+            "id": 3,
+            "hour": 20,
+            "minutes": 0
+        },
+        "selectedSeats": [
+            {
+                "number": 1,
+                "sectionId": 1,
+                "sectionName": "VIP",
+                "rowId": 1,
+                "rowName": "A",
+                "status": "available"
+            },
+            {
+                "number": 2,
+                "sectionId": 1,
+                "sectionName": "VIP",
+                "rowId": 1,
+                "rowName": "A",
+                "status": "available"
+            }
+        ]
+    }
+]
+
