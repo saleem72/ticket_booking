@@ -14,4 +14,7 @@ class AppConstants {
 
   static const double bottomTabBarTotalHeight = 107;
   static const double bottomTabBarHeight = 90;
+
+  static String baseURL = 'http://192.168.192.12:3000/api/';
+  static String moviesEndpoint = 'movies';
 }

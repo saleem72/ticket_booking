@@ -27,27 +27,34 @@ class _BottomBarButtonState extends State<BottomBarButton> {
 
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       if (widget.item == BottomBarItem.values.first) {
-        final position = _onPressed(context);
-        context.read<BottomBarCubit>().activeItem(widget.item, position);
+        _onPressed(context);
       }
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      key: _key,
-      width: 44,
-      height: 44,
-      child: Center(child: Icon(widget.item.icon)),
+    return GestureDetector(
+      onTap: () => _onPressed(context),
+      child: SizedBox(
+        key: _key,
+        width: 44,
+        height: 44,
+        child: Center(child: Icon(widget.item.icon)),
+      ),
     );
   }
 
-  double _onPressed(BuildContext context) {
+  void _onPressed(BuildContext context) {
+    final offset = _getPosition(context);
+    context.read<BottomBarCubit>().activeItem(widget.item, offset);
+  }
+
+  double _getPosition(BuildContext context) {
     RenderBox? child = _key.currentContext?.findRenderObject() as RenderBox?;
     Offset childOffset =
         child?.localToGlobal(Offset.zero) ?? const Offset(0, 0);
 
-    return childOffset.dx;
+    return childOffset.dx + 22;
   }
 }

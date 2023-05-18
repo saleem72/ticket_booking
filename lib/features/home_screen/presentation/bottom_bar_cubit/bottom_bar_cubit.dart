@@ -10,7 +10,6 @@ class BottomBarCubit extends Cubit<BottomBarState> {
   BottomBarCubit() : super(BottomBarState.initial());
 
   activeItem(BottomBarItem item, double offset) {
-    print('activeItem ${item.title}, Offset: $offset');
-    emit(state.copyWith(item: item, offset: offset));
+    emit(state.copyWith(item: item, offset: offset - 40));
   }
 }

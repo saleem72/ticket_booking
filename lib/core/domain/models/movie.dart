@@ -145,10 +145,12 @@ class Movie extends Equatable {
       posterPathLowResURLString: map['posterPathLowResURLString'] != null
           ? map['posterPathLowResURLString'] as String
           : null,
-      popularity:
-          map['popularity'] != null ? map['popularity'] as double : null,
-      voteAverage:
-          map['voteAverage'] != null ? map['voteAverage'] as double : null,
+      popularity: map['popularity'] != null
+          ? double.parse(map["popularity"].toString())
+          : null,
+      voteAverage: map['voteAverage'] != null
+          ? double.parse(map["voteAverage"].toString())
+          : null,
       voteCount: map['voteCount'] != null ? map['voteCount'] as int : null,
       backdropPath:
           map['backdropPath'] != null ? map['backdropPath'] as String : null,

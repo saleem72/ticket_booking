@@ -34,6 +34,7 @@ class HomeScreenContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text('Choose Movie'),
         centerTitle: true,
@@ -50,7 +51,7 @@ class HomeScreenContent extends StatelessWidget {
                       horizontal: AppConstants.paddingLarge),
                   child: HomeSearchBar(onChange: (value) {}),
                 ),
-                // const Expanded(child: MoviesGrid()),
+                const Expanded(child: MoviesGrid()),
               ],
             ),
           ),

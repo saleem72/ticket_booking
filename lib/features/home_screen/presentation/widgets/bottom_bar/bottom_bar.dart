@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../configuration/constants/constants.dart';
 import '../../../domain/models/bottom_bar_item.dart';
-import '../bottom_bar_active_button.dart';
+import 'bottom_bar_active_button.dart';
 import 'bottom_bar_background.dart';
 import 'bottom_bar_button.dart';
 
