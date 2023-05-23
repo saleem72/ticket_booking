@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ticket_booking/configuration/extensions/build_context_extension.dart';
+import 'package:ticket_booking/configuration/routing/app_screens.dart';
 
 import '../../../../configuration/constants/constants.dart';
 import '../home_bloc/home_bloc.dart';
@@ -33,7 +35,11 @@ class MoviesGrid extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (BuildContext context, int index) {
                     final movie = state.group.playNow[index];
-                    return MovieCard(movie: movie);
+                    return GestureDetector(
+                      onTap: () => context.navigator
+                          .pushNamed(AppScreens.reservation, arguments: movie),
+                      child: MovieCard(movie: movie),
+                    );
                   },
                   separatorBuilder: (context, index) => Container(width: 8),
                 ),

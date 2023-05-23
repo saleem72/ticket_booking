@@ -145,7 +145,8 @@ final darkTheme = ThemeData(
 );
 
 Future<void> hideSystemNavigationBar() async {
-  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky); // ,
+  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+      overlays: [SystemUiOverlay.top]); // ,
   // overlays: [SystemUiOverlay.bottom]
 }
 

@@ -5,16 +5,21 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class GalssCard extends StatelessWidget {
-  const GalssCard(
-      {Key? key, required this.child, this.topMargin = 2, this.opacity = 0.2})
-      : super(key: key);
+  const GalssCard({
+    Key? key,
+    required this.child,
+    this.topMargin = 2,
+    this.opacity = 0.2,
+    this.sigmaX = 15,
+  }) : super(key: key);
   final double topMargin;
   final Widget child;
   final double opacity;
+  final double sigmaX;
   @override
   Widget build(BuildContext context) {
     return BackdropFilter(
-      filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+      filter: ImageFilter.blur(sigmaX: sigmaX, sigmaY: sigmaX),
       child: Container(
         margin: EdgeInsets.only(top: topMargin),
         child: Stack(

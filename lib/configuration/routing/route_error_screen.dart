@@ -40,14 +40,16 @@ class RouteErrorScreen extends StatelessWidget {
                   const SizedBox(width: 8),
                   error == null
                       ? const SizedBox.shrink()
-                      : Text(
-                          error!,
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleSmall
-                              ?.copyWith(
-                                color: Theme.of(context).colorScheme.onError,
-                              ),
+                      : Expanded(
+                          child: Text(
+                            error!,
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleSmall
+                                ?.copyWith(
+                                  color: Theme.of(context).colorScheme.onError,
+                                ),
+                          ),
                         ),
                 ],
               ),
@@ -75,14 +77,18 @@ class RouteErrorScreen extends StatelessWidget {
                   const SizedBox(width: 8),
                   error == null
                       ? const SizedBox.shrink()
-                      : Text(
-                          error!,
-                          style:
-                              Theme.of(context).textTheme.titleSmall?.copyWith(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .onErrorContainer,
-                                  ),
+                      : Expanded(
+                          child: Text(
+                            error!,
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleSmall
+                                ?.copyWith(
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onErrorContainer,
+                                ),
+                          ),
                         ),
                 ],
               ),

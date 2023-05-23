@@ -114,3 +114,44 @@ class CircleGragientBorderPainter extends CustomPainter {
     return true;
   }
 }
+
+class RectangleGragientBorderPainter extends CustomPainter {
+  RectangleGragientBorderPainter({
+    required this.gradient,
+    required this.lineWidth,
+    required this.radius,
+  });
+
+  final LinearGradient gradient;
+  final double lineWidth;
+  final double radius;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    Rect rect = Rect.fromLTRB(
+      0 + lineWidth / 2,
+      0 + lineWidth / 2,
+      size.width - lineWidth / 2,
+      size.height - lineWidth / 2,
+    );
+    Paint line = Paint()
+      // ..shader = LinearGradient(
+      //   begin: Alignment(0.6559888124465942, 1.1565858125686646),
+      //   end: Alignment(-1.259852647781372, 1.6198104619979858),
+      //   colors: [
+      //     const Color(0xFF194234).withOpacity(0),
+      //     const Color(0xFF60FFCA),
+      //   ],
+      // ).createShader(rect)
+      ..shader = gradient.createShader(rect)
+      ..strokeWidth = 2
+      ..style = PaintingStyle.stroke;
+    final rrect = RRect.fromRectAndRadius(rect, Radius.circular(radius));
+    canvas.drawRRect(rrect, line);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return true;
+  }
+}
