@@ -1,27 +1,10 @@
 //
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ticket_booking/features/seats_screen/presentation/theatre_bloc/theatre_bloc.dart';
 
-import '../../data/dtos/seat_dto.dart';
-
-class SeatView extends StatelessWidget {
-  const SeatView(
-      {super.key, required this.seat, this.width = 32, this.height = 22});
-  final SeatDTO seat;
-  final double width;
-  final double height;
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: width,
-      height: height,
-      child: CustomPaint(
-        painter: SeatPainter(color: seat.status.color),
-        child: const SizedBox.expand(),
-      ),
-    );
-  }
-}
+import '../../domain/models/seat.dart';
 
 class SeatPainter extends CustomPainter {
   SeatPainter({
@@ -39,7 +22,7 @@ class SeatPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return false;
+    return true;
   }
 
   Path _core(Size size) {

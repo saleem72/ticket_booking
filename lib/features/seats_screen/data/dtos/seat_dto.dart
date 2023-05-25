@@ -1,12 +1,11 @@
 //
 
-import 'dart:convert';
-
-import 'package:equatable/equatable.dart';
+import 'package:ticket_booking/features/seats_screen/domain/models/seat.dart';
 
 import '../../domain/models/seat_status.dart';
 
-class SeatDTO extends Equatable {
+class SeatDTO {
+  final int id;
   final int number;
   final int sectionId;
   final String sectionName;
@@ -14,6 +13,7 @@ class SeatDTO extends Equatable {
   final String rowName;
   final SeatStatus status;
   const SeatDTO({
+    required this.id,
     required this.number,
     required this.sectionId,
     required this.sectionName,
@@ -23,45 +23,11 @@ class SeatDTO extends Equatable {
   });
 
   @override
-  List<Object?> get props =>
-      [number, sectionId, sectionName, rowId, rowName, status];
-
-  @override
   String toString() => "$sectionName,$rowName,$number";
-
-  String get id => toString();
-
-  SeatDTO setSelected(bool selected) {
-    return copyWith(
-      status: selected ? SeatStatus.selected : SeatStatus.available,
-    );
-  }
-
-  SeatDTO reserve() {
-    return copyWith(status: SeatStatus.reserved);
-  }
-
-  static const List<SeatDTO> dummyData = [
-    SeatDTO(
-      number: 1,
-      sectionId: 1,
-      sectionName: "VIP",
-      rowId: 1,
-      rowName: "A",
-      status: SeatStatus.available,
-    ),
-    SeatDTO(
-      number: 2,
-      sectionId: 1,
-      sectionName: "VIP",
-      rowId: 1,
-      rowName: "A",
-      status: SeatStatus.available,
-    ),
-  ];
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
+      'id': id,
       'number': number,
       'sectionId': sectionId,
       'sectionName': sectionName,
@@ -73,6 +39,7 @@ class SeatDTO extends Equatable {
 
   factory SeatDTO.fromMap(Map<String, dynamic> map) {
     return SeatDTO(
+      id: map['id'] as int,
       number: map['number'] as int,
       sectionId: map['sectionId'] as int,
       sectionName: map['sectionName'] as String,
@@ -82,26 +49,15 @@ class SeatDTO extends Equatable {
     );
   }
 
-  SeatDTO copyWith({
-    int? number,
-    int? sectionId,
-    String? sectionName,
-    int? rowId,
-    String? rowName,
-    SeatStatus? status,
-  }) {
-    return SeatDTO(
-      number: number ?? this.number,
-      sectionId: sectionId ?? this.sectionId,
-      sectionName: sectionName ?? this.sectionName,
-      rowId: rowId ?? this.rowId,
-      rowName: rowName ?? this.rowName,
-      status: status ?? this.status,
+  Seat toDomain() {
+    return Seat(
+      id: id,
+      number: number,
+      sectionId: sectionId,
+      sectionName: sectionName,
+      rowId: rowId,
+      rowName: rowName,
+      status: status,
     );
   }
-
-  String toJson() => json.encode(toMap());
-
-  factory SeatDTO.fromJson(String source) =>
-      SeatDTO.fromMap(json.decode(source) as Map<String, dynamic>);
 }

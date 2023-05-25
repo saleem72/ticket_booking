@@ -7,34 +7,53 @@ class TheatreState extends Equatable {
     required this.selectedSeats,
     required this.showBottomCard,
     required this.maxSeats,
+    required this.seats,
   });
 
-  final List<TheatreLayerDTO> layers;
-  final List<SeatDTO> selectedSeats;
+  final List<TheatreLayer> layers;
+  final List<Seat> seats;
+  final List<Seat> selectedSeats;
   final bool showBottomCard;
   final int maxSeats;
 
   @override
-  List<Object> get props => [layers, selectedSeats, showBottomCard];
+  List<Object> get props => [layers, selectedSeats, showBottomCard, seats];
 
   factory TheatreState.initial() => const TheatreState._(
         layers: [],
         selectedSeats: [],
         showBottomCard: false,
         maxSeats: 0,
+        seats: [],
       );
 
   TheatreState copyWith({
-    List<TheatreLayerDTO>? layers,
-    List<SeatDTO>? selectedSeats,
+    List<TheatreLayer>? layers,
+    List<Seat>? seats,
+    List<Seat>? selectedSeats,
     bool? showBottomCard,
     int? maxSeats,
   }) {
     return TheatreState._(
       layers: layers ?? this.layers,
+      seats: seats ?? this.seats,
       selectedSeats: selectedSeats ?? this.selectedSeats,
       showBottomCard: showBottomCard ?? this.showBottomCard,
       maxSeats: maxSeats ?? this.maxSeats,
     );
+  }
+
+  List<Seat> seatsForRow(int rowId) {
+    return seats.where((element) => element.rowId == rowId).toList();
+  }
+
+  List<Seat> _updateSeat(Seat seat) {
+    return seats.map((item) {
+      if (item.id == seat.id) {
+        return seat;
+      } else {
+        return item;
+      }
+    }).toList();
   }
 }

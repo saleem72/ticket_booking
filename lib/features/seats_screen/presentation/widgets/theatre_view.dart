@@ -5,11 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ticket_booking/configuration/constants/constants.dart';
 import 'package:ticket_booking/configuration/extensions/build_context_extension.dart';
 
-import '../../data/dtos/theatre_layer_dto.dart';
-import '../../data/dtos/theatre_row_dto.dart';
-import '../../data/dtos/theatre_section_dto.dart';
+import '../../domain/models/theatre_layer.dart';
+import '../../domain/models/theatre_row.dart';
+import '../../domain/models/theatre_section.dart';
 import '../theatre_bloc/theatre_bloc.dart';
-import 'seart_path.dart';
+import 'seat_view.dart';
 
 class TheatreView extends StatelessWidget {
   const TheatreView({
@@ -58,7 +58,7 @@ class TheatreLayerView extends StatelessWidget {
     required this.layer,
     required this.seatWidth,
   });
-  final TheatreLayerDTO layer;
+  final TheatreLayer layer;
   final double seatWidth;
   @override
   Widget build(BuildContext context) {
@@ -94,7 +94,7 @@ class TheatreSectionView extends StatelessWidget {
     required this.seatWidth,
   });
   final double seatWidth;
-  final TheatreSectionDTO section;
+  final TheatreSection section;
 
   @override
   Widget build(BuildContext context) {
@@ -120,30 +120,36 @@ class SectionRowView extends StatelessWidget {
     required this.seatWidth,
   });
 
-  final TheatreRowDTO row;
+  final TheatreRow row;
   final double seatWidth;
 
   @override
   Widget build(BuildContext context) {
     final seatHeight = seatWidth * AppConstants.seatRatio;
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      mainAxisSize: MainAxisSize.max,
-      children: [
-        for (int i = 0; i < row.seats.length; i++)
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              SeatView(
-                seat: row.seats[i],
-                width: seatWidth,
-                height: seatHeight,
-              ),
-              if (i != row.seats.length - 1) const SizedBox(width: 4),
-            ],
-          )
-      ],
+
+    return BlocBuilder<TheatreBloc, TheatreState>(
+      builder: (context, state) {
+        final seats = state.seatsForRow(row.id);
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            for (int i = 0; i < seats.length; i++)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SeatView(
+                    seat: seats[i],
+                    width: seatWidth,
+                    height: seatHeight,
+                  ),
+                  if (i != seats.length - 1) const SizedBox(width: 4),
+                ],
+              )
+          ],
+        );
+      },
     );
   }
 }

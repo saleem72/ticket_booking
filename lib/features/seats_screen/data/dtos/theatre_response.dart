@@ -1,7 +1,8 @@
 //
 
-import 'dart:convert';
+import 'package:ticket_booking/features/seats_screen/domain/models/theatre_layer.dart';
 
+import '../../domain/models/seat.dart';
 import 'seat_dto.dart';
 import 'theatre_layer_dto.dart';
 
@@ -31,12 +32,7 @@ class TheatreResponse {
     );
   }
 
-  String toJson() => json.encode(toMap());
-
-  factory TheatreResponse.fromJson(String source) =>
-      TheatreResponse.fromMap(json.decode(source) as Map<String, dynamic>);
-
-  List<SeatDTO> extractSeats() {
+  List<Seat> extractSeats() {
     List<SeatDTO> result = [];
 
     for (int idx = 0; idx < layers.length; idx++) {
@@ -44,6 +40,10 @@ class TheatreResponse {
       result.addAll(layer.extractSeats());
     }
 
-    return result;
+    return result.map((e) => e.toDomain()).toList();
+  }
+
+  List<TheatreLayer> extractLayers() {
+    return layers.map((e) => e.toDomain()).toList();
   }
 }

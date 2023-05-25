@@ -2,11 +2,11 @@
 
 import 'dart:convert';
 
-import 'package:equatable/equatable.dart';
+import 'package:ticket_booking/features/seats_screen/domain/models/theatre_row.dart';
 
 import 'seat_dto.dart';
 
-class TheatreRowDTO extends Equatable {
+class TheatreRowDTO {
   final int id;
   final String name;
   final int sectionId;
@@ -17,9 +17,6 @@ class TheatreRowDTO extends Equatable {
     required this.sectionId,
     required this.seats,
   });
-
-  @override
-  List<Object?> get props => [id, name, sectionId, seats];
 
   @override
   String toString() => 'TheatreRow(id: $id, name: $name)';
@@ -46,22 +43,11 @@ class TheatreRowDTO extends Equatable {
     );
   }
 
-  String toJson() => json.encode(toMap());
-
-  factory TheatreRowDTO.fromJson(String source) =>
-      TheatreRowDTO.fromMap(json.decode(source) as Map<String, dynamic>);
-
-  TheatreRowDTO copyWith({
-    int? id,
-    String? name,
-    int? sectionId,
-    List<SeatDTO>? seats,
-  }) {
-    return TheatreRowDTO(
-      id: id ?? this.id,
-      name: name ?? this.name,
-      sectionId: sectionId ?? this.sectionId,
-      seats: seats ?? this.seats,
+  TheatreRow toDomain() {
+    return TheatreRow(
+      id: id,
+      name: name,
+      sectionId: sectionId,
     );
   }
 }
