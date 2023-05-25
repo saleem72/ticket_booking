@@ -2,13 +2,13 @@
 
 import 'package:flutter/material.dart';
 
-import 'circle_blur_painter.dart';
+import '../../../../core/presentation/widgets/circle_blur_painter.dart';
 
 class FadeCircle extends StatelessWidget {
   const FadeCircle({
     super.key,
-    this.width = 300,
-    this.height = 300,
+    required this.width, //= 300,
+    required this.height, // = 300,
     this.blurRadius = 150,
     required this.color,
   });

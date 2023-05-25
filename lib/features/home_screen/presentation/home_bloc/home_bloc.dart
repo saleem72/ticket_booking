@@ -19,7 +19,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final IHomeRepository repository = HomeRepository();
 
   _onFetchMovies(_FetchMovies event, Emitter<HomeState> emit) async {
-    final map = await fixture('movies.json');
+    final map = await mapFromFile('movies.json');
     final respone = MoviesResponse.fromMap(map);
     emit(state.copyWith(group: respone));
 

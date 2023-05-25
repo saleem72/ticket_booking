@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ticket_booking/configuration/routing/app_router.dart';
 import 'package:ticket_booking/configuration/routing/app_screens.dart';
 import 'package:ticket_booking/configuration/theme/app_theme.dart';
+import 'package:ticket_booking/core/presentation/reservation_bloc/reservation_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,12 +17,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     setStatusBarAndNavigationBarColor(ThemeMode.dark);
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: darkTheme,
-      onGenerateRoute: AppRouter.generate,
-      initialRoute: AppScreens.initial,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (_) => ReservationBloc(),
+        ),
+      ],
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+        theme: darkTheme,
+        onGenerateRoute: AppRouter.generate,
+        initialRoute: AppScreens.initial,
+      ),
     );
   }
 }

@@ -11,11 +11,13 @@ class GalssCard extends StatelessWidget {
     this.topMargin = 2,
     this.opacity = 0.2,
     this.sigmaX = 15,
+    required this.fill,
   }) : super(key: key);
   final double topMargin;
   final Widget child;
   final double opacity;
   final double sigmaX;
+  final Color fill;
   @override
   Widget build(BuildContext context) {
     return BackdropFilter(
@@ -28,7 +30,7 @@ class GalssCard extends StatelessWidget {
               opacity: 0.2,
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.6),
+                  color: fill,
                 ),
               ),
             ),

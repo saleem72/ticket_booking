@@ -6,16 +6,19 @@ import '../../../../configuration/constants/constants.dart';
 import 'fade_circle.dart';
 
 class FadedOval extends StatelessWidget {
-  const FadedOval(
-      {super.key,
-      required this.color,
-      this.alignment,
-      required this.offset,
-      required this.blurRadius});
+  const FadedOval({
+    super.key,
+    required this.color,
+    this.alignment,
+    required this.offset,
+    required this.blurRadius,
+    this.height = 231,
+  });
 
   final Color color;
   final AlignmentGeometry? alignment;
   final Offset offset;
+  final double height;
   final double blurRadius;
 
   @override
@@ -35,7 +38,7 @@ class FadedOval extends StatelessWidget {
           offset: offset,
           child: FadeCircle(
             width: 200,
-            height: 231,
+            height: height,
             color: color.withOpacity(0.6),
             blurRadius: blurRadius,
           ),

@@ -1,11 +1,15 @@
 //
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ticket_booking/core/domain/models/movie.dart';
 
+import '../../core/presentation/reservation_bloc/reservation_bloc.dart';
 import 'app_screens.dart';
 import 'route_error_screen.dart';
 import 'screens.dart';
+
+final ReservationBloc _reservationBloc = ReservationBloc();
 
 class AppRouter {
   static Route<dynamic>? generate(RouteSettings settings) {
@@ -16,7 +20,8 @@ class AppRouter {
         final movie = settings.arguments as Movie?;
         if (movie != null) {
           return MaterialPageRoute(
-              builder: (_) => ReservationScreen(movie: movie));
+            builder: (_) => ReservationScreen(movie: movie),
+          );
         } else {
           return MaterialPageRoute(
             builder: (_) => RouteErrorScreen(
@@ -25,6 +30,10 @@ class AppRouter {
             ),
           );
         }
+      case AppScreens.chooseSeats:
+        return MaterialPageRoute(
+          builder: (_) => const SeatsScreen(),
+        );
       case AppScreens.test:
         return MaterialPageRoute(builder: (_) => const TestScreen());
 

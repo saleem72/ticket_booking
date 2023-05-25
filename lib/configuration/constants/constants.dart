@@ -17,4 +17,8 @@ class AppConstants {
 
   static String baseURL = 'http://192.168.192.12:3000/api/';
   static String moviesEndpoint = 'movies';
+
+  static const double theatreGap = 8;
+  static const double theatrePadding = 20;
+  static const double seatRatio = 22 / 32;
 }

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../configuration/constants/constants.dart';
 import '../faded_oval.dart';
-import '../glass_card.dart';
+import '../../../../../core/presentation/widgets/glass_card.dart';
 
 class BottomBarBackground extends StatelessWidget {
   const BottomBarBackground({
@@ -31,7 +31,10 @@ class BottomBarBackground extends StatelessWidget {
       width: double.maxFinite,
       decoration: const BoxDecoration(),
       clipBehavior: Clip.hardEdge,
-      child: GalssCard(child: Container()),
+      child: GalssCard(
+        fill: Colors.white.withOpacity(0.6),
+        child: Container(),
+      ),
     );
   }
 

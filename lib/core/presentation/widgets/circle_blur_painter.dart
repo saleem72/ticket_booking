@@ -3,7 +3,6 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:ticket_booking/configuration/theme/colors.dart';
 
 class CircleBlurPainter extends CustomPainter {
   CircleBlurPainter({

@@ -4,7 +4,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import '../home_screen/presentation/widgets/gradient_border.dart';
+import '../../../../core/presentation/widgets/gradient_border.dart';
 
 class ResizableList extends StatefulWidget {
   ResizableList({
@@ -60,71 +60,53 @@ class _ResizableListState extends State<ResizableList> {
     });
   }
 
-  ///Trigger callback on reach end-of-list
-  void _onReachEnd() {
-    // if (widget.onReachEnd != null) widget.onReachEnd!();
-  }
-
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: widget.height,
+      color: Colors.transparent,
       child: LayoutBuilder(
         builder: (context, constraint) {
-          return GestureDetector(
-            onTap: () {},
-            child: NotificationListener<ScrollNotification>(
-              onNotification: (scrollInfo) {
-                //Check if the received gestures are coming directly from the ScrollSnapList. If not, skip them
-                //Try to avoid inifinte animation loop caused by multi-level NotificationListener
-                if (scrollInfo.depth > 0) {
-                  return false;
+          return NotificationListener<ScrollNotification>(
+            onNotification: (scrollInfo) {
+              //Check if the received gestures are coming directly from the ScrollSnapList. If not, skip them
+              //Try to avoid inifinte animation loop caused by multi-level NotificationListener
+              if (scrollInfo.depth > 0) {
+                return false;
+              }
+
+              if (scrollInfo is ScrollEndNotification) {
+                //snap the selection
+                double offset = _calcCardLocation(
+                  pixel: scrollInfo.metrics.pixels,
+                  itemSize: widget.itemSize,
+                );
+
+                //only animate if not yet snapped (tolerance 0.01 pixel)
+                if ((scrollInfo.metrics.pixels - offset).abs() > 0.01) {
+                  _animateScroll(offset);
+                }
+              } else if (scrollInfo is ScrollUpdateNotification) {
+                //save pixel position for scale-effect
+                setState(() {
+                  currentPixel = scrollInfo.metrics.pixels;
+                });
+
+                if (isInit) {
+                  return true;
                 }
 
-                if (scrollInfo is ScrollEndNotification) {
-                  // dont snap until after first drag
-                  // if (isInit) {
-                  //   return true;
-                  // }
-
-                  // double tolerance = (widget.itemSize / 2);
-                  if (scrollInfo.metrics.pixels >=
-                      scrollInfo.metrics.maxScrollExtent) {
-                    _onReachEnd();
-                  }
-
-                  //snap the selection
-                  double offset = _calcCardLocation(
+                if (isInit == false) {
+                  _calcCardLocation(
                     pixel: scrollInfo.metrics.pixels,
                     itemSize: widget.itemSize,
                   );
-
-                  //only animate if not yet snapped (tolerance 0.01 pixel)
-                  if ((scrollInfo.metrics.pixels - offset).abs() > 0.01) {
-                    _animateScroll(offset);
-                  }
-                } else if (scrollInfo is ScrollUpdateNotification) {
-                  //save pixel position for scale-effect
-                  setState(() {
-                    currentPixel = scrollInfo.metrics.pixels;
-                  });
-
-                  if (isInit) {
-                    return true;
-                  }
-
-                  if (isInit == false) {
-                    _calcCardLocation(
-                      pixel: scrollInfo.metrics.pixels,
-                      itemSize: widget.itemSize,
-                    );
-                  }
                 }
+              }
 
-                return true;
-              },
-              child: _list(),
-            ),
+              return true;
+            },
+            child: _list(),
           );
         },
       ),
@@ -136,17 +118,11 @@ class _ResizableListState extends State<ResizableList> {
   ///Then trigger `onItemFocus`
   double _calcCardLocation(
       {double? pixel, required double itemSize, int? index}) {
-    //current pixel: pixel
-    //listPadding is not considered as moving pixel by scroll (0.0 is after padding)
-    //substracted by itemSize/2 (to center the item)
-    //divided by pixels taken by each item
-
     // pixel = listSpacing + items + gaps
     final totalSpace = (((pixel ?? 0 - (itemSize + widget.gap) / 2)) /
         (itemSize + widget.gap));
     int cardIndex = index ?? totalSpace.round();
-    // cardIndex = cardIndex - 2;
-    //Avoid index getting out of bounds
+
     if (cardIndex < 0) {
       cardIndex = 0;
     } else if (cardIndex > widget.itemCount - 1) {
@@ -256,12 +232,12 @@ class _ResizableListState extends State<ResizableList> {
     ],
   );
 
-  final gradientForNormalBorder = LinearGradient(
-    begin: const Alignment(-0.5, -0.7),
-    end: const Alignment(-0.1, -0.5),
+  final gradientForNormalBorder = const LinearGradient(
+    begin: Alignment(-0.5, -0.7),
+    end: Alignment(-0.1, -0.5),
     colors: [
-      const Color(0xFF60FFCA),
-      const Color(0xFF194234),
+      Color(0xFF60FFCA),
+      Color(0xFF194234),
     ],
   );
 

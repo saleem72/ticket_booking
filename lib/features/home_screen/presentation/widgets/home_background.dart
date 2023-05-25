@@ -23,8 +23,10 @@ class HomeBackground extends StatelessWidget {
             alignment: Alignment.centerRight,
             child: Transform.translate(
               offset: const Offset(150, 150),
-              child:
-                  FadeCircle(color: const Color(0xFFFF53C0).withOpacity(0.25)),
+              child: FadeCircle(
+                  width: 300,
+                  height: 300,
+                  color: const Color(0xFFFF53C0).withOpacity(0.25)),
             ),
           ),
           Align(
@@ -32,6 +34,8 @@ class HomeBackground extends StatelessWidget {
             child: Transform.translate(
               offset: const Offset(-150, 0),
               child: FadeCircle(
+                width: 300,
+                height: 300,
                 color: const Color(0xFF60FFCA).withOpacity(0.2),
                 blurRadius: 200,
               ),

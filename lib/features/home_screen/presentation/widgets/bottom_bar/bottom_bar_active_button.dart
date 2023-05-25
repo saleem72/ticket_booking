@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../bottom_bar_cubit/bottom_bar_cubit.dart';
-import '../glass_card.dart';
-import '../gradient_border.dart';
+import '../../../../../core/presentation/widgets/glass_card.dart';
+import '../../../../../core/presentation/widgets/gradient_border.dart';
 
 class BottomBarActiveButton extends StatelessWidget {
   const BottomBarActiveButton({
@@ -51,7 +51,9 @@ class BottomBarActiveButton extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       child: Stack(
         children: [
-          const GalssCard(child: CircularGradientBorder()),
+          GalssCard(
+              fill: Colors.white.withOpacity(0.6),
+              child: const CircularGradientBorder()),
           Center(
             child: AnimatedSwitcher(
               duration: const Duration(milliseconds: 200),

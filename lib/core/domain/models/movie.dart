@@ -72,7 +72,7 @@ class Movie extends Equatable {
   final int? voteCount;
   final String? backdropPath;
 
-  Movie({
+  const Movie({
     required this.id,
     this.title,
     this.subtitle,
@@ -98,7 +98,7 @@ class Movie extends Equatable {
   //     return URL(string: backdropPath ?? "")
   // }
 
-  factory Movie.example() => Movie(
+  factory Movie.example() => const Movie(
       id: 453395,
       title: "Doctor Strange",
       subtitle: "in the Multiverse of Madness",
