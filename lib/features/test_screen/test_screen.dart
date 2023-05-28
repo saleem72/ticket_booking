@@ -1,12 +1,18 @@
 //
 
-import 'dart:math';
+import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'package:ticket_booking/configuration/extensions/build_context_extension.dart';
+import 'package:ticket_booking/core/presentation/widgets/swipe_cards_list/widgets/swipe_cards_list.dart';
 
-import '../reservation_screen/presentation/widgets/resizable_list.dart';
+extension RadianToDegree on double {
+  double toRadian() {
+    // 360 = 2 * pi
+    // 1 = 2 * pi / 360
+    // 1 = pi / 180
+    return this * math.pi / 180;
+  }
+}
 
 class TestScreen extends StatefulWidget {
   const TestScreen({super.key});
@@ -38,52 +44,28 @@ class _TestScreenState extends State<TestScreen> {
     super.dispose();
   }
 
+/*
+ final height =
+        context.mediaQuery.size.height * AppConstants.clippedCardHeightRatio;
+    return SizedBox(
+      height: height,
+      width: height * AppConstants.clippedCardWidthRatio,
+ */
   @override
   Widget build(BuildContext context) {
-    final items = [0, 1, 2, 3, 4, 5]
-        .map<DateTime>((e) => DateTime.now().add(Duration(days: e)))
-        .toList();
-    final totalWidth = context.mediaQuery.size.width;
-    final itemWidth = (totalWidth - 120) / 5.4;
-    // totalWidth: 411.42857142857144, itemWidth: 53.96825396825397
     return Scaffold(
       appBar: AppBar(
         title: const Text('Test'),
       ),
-      body: SafeArea(
-        child: Column(
-          children: [
-            const SizedBox(height: 16),
-            ResizableList(
-              totalWidth: MediaQuery.of(context).size.width,
-              height: 160,
-              itemSize: itemWidth,
-              itemCount: items.length,
-              itemBuilder: (context, index) {
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      DateFormat('EEE').format(items[index]),
-                      style: context.textTheme.titleSmall?.copyWith(
-                        color: Colors.white,
-                      ),
-                    ),
-                    Text(
-                      DateFormat('d').format(items[index]),
-                      style: context.textTheme.titleSmall?.copyWith(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
-                );
-              },
-              onItemFocus: (idx) {
-                print(idx);
-              },
-            ),
-          ],
-        ),
+      body: const SwipeCardsList(
+        list: [
+          Colors.blue,
+          Colors.amber,
+          Colors.green,
+          Colors.grey,
+          Colors.orange,
+          Colors.purple,
+        ],
       ),
     );
   }

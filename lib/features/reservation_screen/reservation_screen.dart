@@ -9,10 +9,8 @@ import 'package:ticket_booking/configuration/routing/app_screens.dart';
 import 'package:ticket_booking/core/domain/models/movie.dart';
 import 'package:ticket_booking/core/domain/models/movie_time.dart';
 import 'package:ticket_booking/core/presentation/reservation_bloc/reservation_bloc.dart';
-import 'package:ticket_booking/core/presentation/widgets/glass_card.dart';
 
 import '../../core/presentation/widgets/glassy_app_bar.dart';
-import '../../core/presentation/widgets/gradient_border.dart';
 import 'presentation/widgets/movie_full_image.dart';
 import 'presentation/widgets/reservation_button.dart';
 import 'presentation/widgets/resizable_list.dart';

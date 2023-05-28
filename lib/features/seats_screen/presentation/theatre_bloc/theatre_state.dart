@@ -4,7 +4,6 @@ part of 'theatre_bloc.dart';
 class TheatreState extends Equatable {
   const TheatreState._({
     required this.layers,
-    required this.selectedSeats,
     required this.showBottomCard,
     required this.maxSeats,
     required this.seats,
@@ -12,7 +11,6 @@ class TheatreState extends Equatable {
 
   final List<TheatreLayer> layers;
   final List<Seat> seats;
-  final List<Seat> selectedSeats;
   final bool showBottomCard;
   final int maxSeats;
 
@@ -21,7 +19,6 @@ class TheatreState extends Equatable {
 
   factory TheatreState.initial() => const TheatreState._(
         layers: [],
-        selectedSeats: [],
         showBottomCard: false,
         maxSeats: 0,
         seats: [],
@@ -30,14 +27,12 @@ class TheatreState extends Equatable {
   TheatreState copyWith({
     List<TheatreLayer>? layers,
     List<Seat>? seats,
-    List<Seat>? selectedSeats,
     bool? showBottomCard,
     int? maxSeats,
   }) {
     return TheatreState._(
       layers: layers ?? this.layers,
       seats: seats ?? this.seats,
-      selectedSeats: selectedSeats ?? this.selectedSeats,
       showBottomCard: showBottomCard ?? this.showBottomCard,
       maxSeats: maxSeats ?? this.maxSeats,
     );
@@ -55,5 +50,28 @@ class TheatreState extends Equatable {
         return item;
       }
     }).toList();
+  }
+
+  double priceForSeat(Seat seat) {
+    final sectionId = seat.sectionId;
+    final section = layers
+        .map((e) => e.sections)
+        .expand((element) => element)
+        .where((item) => item.id == sectionId)
+        .toList()
+        .first;
+    return section.seatPrice;
+    // .where((element) => element.where((item) => item.id == sectionId));
+  }
+
+  List<SeatWithPrice> selectedSeats() {
+    final selected = seats
+        .where((element) => element.status == SeatStatus.selected)
+        .toList();
+
+    final result = selected
+        .map((e) => SeatWithPrice.fromSeat(seat: e, price: priceForSeat(e)))
+        .toList();
+    return result;
   }
 }

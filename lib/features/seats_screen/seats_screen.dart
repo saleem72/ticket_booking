@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ticket_booking/configuration/extensions/build_context_extension.dart';
+import 'package:ticket_booking/configuration/routing/app_screens.dart';
 import 'package:ticket_booking/core/presentation/widgets/glassy_app_bar.dart';
 
 import 'presentation/theatre_bloc/theatre_bloc.dart';
@@ -40,7 +42,8 @@ class SeatsScreenContent extends StatelessWidget {
               children: [
                 GlassyAppBar(
                   trailingIcon: Icons.calendar_month,
-                  trailingAction: () {},
+                  trailingAction: () =>
+                      context.navigator.pushNamed(AppScreens.test),
                   title: 'Choose Seats',
                 ),
                 const SizedBox(height: 32),

@@ -11,6 +11,9 @@ abstract class ReservationEvent extends Equatable {
       _ReservationSetDay(date: date);
   factory ReservationEvent.setTime({required int hour, required int minutes}) =>
       _ReservationSetTime(hour: hour, minutes: minutes);
+
+  factory ReservationEvent.updateSeats({required List<SeatWithPrice> seats}) =>
+      _UpdateSeats(seats: seats);
 }
 
 class _ReservationSetDay extends ReservationEvent {
@@ -33,4 +36,14 @@ class _ReservationSetTime extends ReservationEvent {
 
   @override
   List<Object> get props => [hour, minutes];
+}
+
+class _UpdateSeats extends ReservationEvent {
+  final List<SeatWithPrice> seats;
+  const _UpdateSeats({
+    required this.seats,
+  });
+
+  @override
+  List<Object> get props => [seats];
 }

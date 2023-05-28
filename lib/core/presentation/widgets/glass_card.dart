@@ -4,8 +4,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-class GalssCard extends StatelessWidget {
-  const GalssCard({
+class GlassCard extends StatelessWidget {
+  const GlassCard({
     Key? key,
     required this.child,
     this.topMargin = 2,
@@ -40,13 +40,4 @@ class GalssCard extends StatelessWidget {
       ),
     );
   }
-
-  // Add optinal shadow behind the card
-  List<BoxShadow> _shadows() => const [
-        BoxShadow(
-          color: Colors.white,
-          blurRadius: 1,
-          spreadRadius: 1,
-        )
-      ];
 }

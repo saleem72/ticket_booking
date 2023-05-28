@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:ticket_booking/configuration/extensions/build_context_extension.dart';
+import 'package:ticket_booking/features/seats_screen/presentation/widgets/bottom_card/hollow_border_painter.dart';
 
 import '../../../../../core/presentation/widgets/glass_card.dart';
 import '../../../../home_screen/presentation/widgets/fade_circle.dart';
@@ -19,6 +20,12 @@ class HollowCardBackground extends StatelessWidget {
         children: [
           _bg(context),
           _glassy(),
+          CustomPaint(
+            painter: HollowBorderPainter(
+              color: Colors.white.withOpacity(0.3),
+            ),
+            child: const SizedBox.expand(),
+          ),
         ],
       ),
     );
@@ -27,20 +34,25 @@ class HollowCardBackground extends StatelessWidget {
   ClipPath _glassy() {
     return ClipPath(
       clipper: HollowClipper(),
-      child: GalssCard(
+      child: GlassCard(
         fill: Colors.white.withOpacity(0.6),
         sigmaX: 100,
-        child: Container(
-          decoration: BoxDecoration(
-            border: Border(
-                top: BorderSide(
-              color: Colors.white.withOpacity(0.3),
-            )),
-          ),
-        ),
+        child: Container(),
       ),
     );
   }
+
+  /*
+
+          decoration: BoxDecoration(
+            border: Border(
+              top: BorderSide(
+                color: Colors.white.withOpacity(0.3),
+              ),
+            ),
+          ),
+        
+  */
 
   ClipPath _bg(BuildContext context) {
     return ClipPath(

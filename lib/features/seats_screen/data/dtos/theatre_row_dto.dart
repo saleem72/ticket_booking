@@ -1,7 +1,5 @@
 //
 
-import 'dart:convert';
-
 import 'package:ticket_booking/features/seats_screen/domain/models/theatre_row.dart';
 
 import 'seat_dto.dart';

@@ -31,7 +31,7 @@ class BottomBarBackground extends StatelessWidget {
       width: double.maxFinite,
       decoration: const BoxDecoration(),
       clipBehavior: Clip.hardEdge,
-      child: GalssCard(
+      child: GlassCard(
         fill: Colors.white.withOpacity(0.6),
         child: Container(),
       ),

@@ -51,7 +51,7 @@ class BottomBarActiveButton extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       child: Stack(
         children: [
-          GalssCard(
+          GlassCard(
               fill: Colors.white.withOpacity(0.6),
               child: const CircularGradientBorder()),
           Center(

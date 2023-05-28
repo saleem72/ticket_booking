@@ -1,10 +1,6 @@
 //
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ticket_booking/features/seats_screen/presentation/theatre_bloc/theatre_bloc.dart';
-
-import '../../domain/models/seat.dart';
 
 class SeatPainter extends CustomPainter {
   SeatPainter({

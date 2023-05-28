@@ -14,17 +14,17 @@ class ArcPainter extends CustomPainter {
 
     final path = myPath(size);
 
-    Paint shadowPaint1 = Paint()
-      ..color = color
-      ..style = PaintingStyle.stroke
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 10)
-      ..strokeWidth = 11;
+    // Paint shadowPaint1 = Paint()
+    //   ..color = color
+    //   ..style = PaintingStyle.stroke
+    //   ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 10)
+    //   ..strokeWidth = 11;
 
-    Paint shadowPaint2 = Paint()
-      ..color = color
-      ..style = PaintingStyle.stroke
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 7)
-      ..strokeWidth = 9;
+    // Paint shadowPaint2 = Paint()
+    //   ..color = color
+    //   ..style = PaintingStyle.stroke
+    //   ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 7)
+    //   ..strokeWidth = 9;
 
     Paint shadowPaint3 = Paint()
       ..color = color

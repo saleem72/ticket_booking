@@ -3,6 +3,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:ticket_booking/configuration/constants/constants.dart';
 
 import '../../../../core/presentation/widgets/gradient_border.dart';
 
@@ -214,49 +215,15 @@ class _ResizableListState extends State<ResizableList> {
     );
   }
 
-  final gradientForSelected = const LinearGradient(
-    begin: Alignment.topLeft,
-    end: Alignment(1, 1.3140583634376526),
-    colors: [
-      Color(0xFFB6116B),
-      Color(0xFF2E1371),
-    ],
-  );
-
-  final gradientForSelectedBorder = LinearGradient(
-    begin: const Alignment(-0.5, -0.7),
-    end: const Alignment(-0.1, -0.5),
-    colors: [
-      const Color(0xFFFF53C0).withOpacity(0.7),
-      const Color(0xFFFF53C0).withOpacity(0),
-    ],
-  );
-
-  final gradientForNormalBorder = const LinearGradient(
-    begin: Alignment(-0.5, -0.7),
-    end: Alignment(-0.1, -0.5),
-    colors: [
-      Color(0xFF60FFCA),
-      Color(0xFF194234),
-    ],
-  );
-
-  final gradientForNormal = const LinearGradient(
-    begin: Alignment.topLeft,
-    end: Alignment(1, 1.3140583634376526),
-    colors: [
-      Color(0xFF2E1371),
-      Color(0xFF21232F),
-    ],
-  );
-
   Widget _child(int idx, bool isSelected) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 200),
       width: isSelected ? widget.itemSize * 1.4 : widget.itemSize,
       height: isSelected ? widget.maxHeight : widget.minHeight,
       decoration: BoxDecoration(
-        gradient: isSelected ? gradientForSelected : gradientForNormal,
+        gradient: isSelected
+            ? AppConstants.gradientForSelected
+            : AppConstants.gradientForNormal,
         borderRadius: BorderRadius.circular(10),
       ),
       alignment: Alignment.center,
@@ -266,8 +233,8 @@ class _ResizableListState extends State<ResizableList> {
           widget.itemBuilder(context, idx),
           RectangleGradientBorder(
             gradient: isSelected
-                ? gradientForSelectedBorder
-                : gradientForNormalBorder,
+                ? AppConstants.gradientForSelectedBorder
+                : AppConstants.gradientForNormalBorder,
             lineWidth: 2,
             radius: 10,
           )

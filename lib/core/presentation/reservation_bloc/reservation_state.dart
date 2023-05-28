@@ -9,7 +9,7 @@ class ReservationState extends Equatable {
   });
 
   final DateTime date;
-  final List<String> seats;
+  final List<SeatWithPrice> seats;
   final double cost;
 
   @override
@@ -23,7 +23,7 @@ class ReservationState extends Equatable {
 
   ReservationState copyWith({
     DateTime? date,
-    List<String>? seats,
+    List<SeatWithPrice>? seats,
     double? cost,
   }) {
     return ReservationState._(
@@ -31,5 +31,34 @@ class ReservationState extends Equatable {
       seats: seats ?? this.seats,
       cost: cost ?? this.cost,
     );
+  }
+
+  String? section() {
+    final label = (seats.firstOrNull)?.sectionName;
+    return label;
+  }
+
+  String? selectedSeats() {
+    String? result = seats.isEmpty
+        ? null
+        : (seats.map((e) => e.number.toString()).toList()).join(', ');
+
+    if (result != null) {
+      result = 'Seat $result';
+    }
+
+    return result;
+  }
+
+  String? total() {
+    final result = seats.isEmpty
+        ? 0.0
+        : seats.fold<double>(0, (value, element) => value + element.price);
+
+    if (result == 0) {
+      return null;
+    } else {
+      return 'Total: \$${result.ceil()}';
+    }
   }
 }

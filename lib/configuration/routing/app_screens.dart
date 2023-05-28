@@ -7,4 +7,5 @@ class AppScreens {
   static const String reservation = '/reservation';
   static const String chooseSeats = '/choose_seats';
   static const String test = '/test_screen';
+  static const String tickets = '/tickets_screen';
 }

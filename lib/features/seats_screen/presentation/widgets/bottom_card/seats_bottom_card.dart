@@ -1,6 +1,8 @@
 //
 
 import 'package:flutter/material.dart';
+import 'package:ticket_booking/configuration/extensions/build_context_extension.dart';
+import 'package:ticket_booking/configuration/routing/app_screens.dart';
 
 import '../../../../../core/presentation/widgets/app_bar_button.dart';
 import 'hollow_card_background.dart';
@@ -26,7 +28,8 @@ class SeatsBottomCard extends StatelessWidget {
               width: 70,
               height: 70,
               icon: Icons.home,
-              onPressed: () {},
+              label: 'Buy',
+              onPressed: () => context.navigator.pushNamed(AppScreens.tickets),
             ),
           ),
           const Padding(

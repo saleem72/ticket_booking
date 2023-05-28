@@ -7,6 +7,7 @@ import '../../../../core/data/helpers/fixture_reader.dart';
 import '../../data/dtos/theatre_response.dart';
 import '../../domain/models/seat.dart';
 import '../../domain/models/seat_status.dart';
+import '../../domain/models/seat_with_price.dart';
 import '../../domain/models/theatre_layer.dart';
 
 part 'theatre_event.dart';
@@ -19,7 +20,6 @@ class TheatreBloc extends Bloc<TheatreEvent, TheatreState> {
   }
 
   _onSeatWasTapped(_SeatWasTapped event, Emitter<TheatreState> emit) {
-    print(event.seat.toString());
     final seat = event.seat;
     if (seat.status == SeatStatus.reserved) {
       return;

@@ -2,6 +2,18 @@
 
 import 'package:flutter/material.dart';
 
+class HollowClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    return _hollowPath(size);
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+    return false;
+  }
+}
+
 class HollowPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
@@ -14,18 +26,6 @@ class HollowPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return false;
-  }
-}
-
-class HollowClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    return _hollowPath(size);
-  }
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
     return false;
   }
 }

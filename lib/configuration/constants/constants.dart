@@ -1,5 +1,7 @@
 //
 
+import 'package:flutter/material.dart';
+
 class AppConstants {
   AppConstants._();
 
@@ -21,4 +23,49 @@ class AppConstants {
   static const double theatreGap = 8;
   static const double theatrePadding = 20;
   static const double seatRatio = 22 / 32;
+
+  // width: 250, height: 460
+  // width: 390, height: 844
+  // 132
+  // 414 460
+  static const double clippedCardHeightRatio = 460 / 844;
+  static const double clippedCardWidthRatio = 250 / 460;
+  static const double clippedCardBarcodeRatio = 132 / 460;
+  static const double clippedCardSmallerScale = 414 / 460;
+
+  static const gradientForSelected = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment(1, 1.3140583634376526),
+    colors: [
+      Color(0xFFB6116B),
+      Color(0xFF2E1371),
+    ],
+  );
+
+  static final gradientForSelectedBorder = LinearGradient(
+    begin: const Alignment(-0.5, -0.7),
+    end: const Alignment(-0.1, -0.5),
+    colors: [
+      const Color(0xFFFF53C0).withOpacity(0.7),
+      const Color(0xFFFF53C0).withOpacity(0),
+    ],
+  );
+
+  static const gradientForNormalBorder = LinearGradient(
+    begin: Alignment(-0.5, -0.7),
+    end: Alignment(-0.1, -0.5),
+    colors: [
+      Color(0xFF60FFCA),
+      Color(0xFF194234),
+    ],
+  );
+
+  static const gradientForNormal = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment(1, 1.3140583634376526),
+    colors: [
+      Color(0xFF2E1371),
+      Color(0xFF21232F),
+    ],
+  );
 }
